@@ -1,7 +1,6 @@
 import React from "react";
 import CardContents from "./CardContents";
 import styled from "styled-components";
-import { observer } from "mobx-react";
 
 const AppCard = styled.div`
   border: solid 3px rgb(230, 230, 230);
@@ -24,7 +23,7 @@ const Card = ({ room, actions }) => {
         <input
           type="checkbox"
           checked={!room.disabled}
-          onClick={() => actions.handleClick(room.id)}
+          onChange={() => actions.handleClick(room.id)}
           hidden={room.id === 1}
         />
         Room {room.id}

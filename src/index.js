@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Main from "./components/Main";
-import RoomStore from './models/RoomMST'
+import RoomStore from './store/models/RoomStore';
 import { connectReduxDevtools, asReduxStore } from 'mst-middlewares'
 import { Provider } from 'react-redux';
 import "./styles.css";
 
-const roomStore = (window.roomStore = RoomStore.create());
+const roomStore = RoomStore.create();
 const store = asReduxStore(roomStore);
-console.log(store)
 connectReduxDevtools(require('remotedev'), roomStore);
 
 const rootElement = document.getElementById("root");

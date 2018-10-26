@@ -1,7 +1,6 @@
 import React from "react";
 import CardSection from "./CardSection";
 import styled from "styled-components";
-import { observer } from "mobx-react";
 
 const CardBody = styled.div`
   display: flex;
