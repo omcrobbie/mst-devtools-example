@@ -13,8 +13,10 @@ const Container = styled.div`
 class Main extends React.Component {
 
   componentDidMount() {
+    const { startAsync, hydrate } = this.props.actions;
+    startAsync();
     if (window.location.search) {
-      this.props.actions.hydrate();
+      hydrate();
     }
   }
   render() {

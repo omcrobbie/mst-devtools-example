@@ -8,7 +8,9 @@ import "./styles.css";
 
 const roomStore = RoomStore.create();
 const store = asReduxStore(roomStore);
-connectReduxDevtools(require('remotedev'), roomStore);
+connectReduxDevtools(require('remotedev'), roomStore, {
+    logArgsNearName: false
+});
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(

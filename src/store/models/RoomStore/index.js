@@ -1,4 +1,4 @@
-import { types, getSnapshot } from 'mobx-state-tree';
+import { types, getSnapshot, flow } from 'mobx-state-tree';
 import Room from './Room';
 import aTypes from '../../actions/actionTypes';
 
@@ -60,6 +60,21 @@ const RoomStore = types
                 room.adultSelector.selectedValue = adultSelector.selectedValue;
                 room.childSelector.selectedValue = childSelector.selectedValue;
             });
+        },
+        [aTypes.START_FAKE_ASYNC] () {
+            const p = new Promise((res) => {(
+                setTimeout(() => {
+                    res();
+                    self.END_FAKE_ASYNC()
+                }, 3000)
+            )})
+            flow(function*() {
+                yield p();
+            })
+
+        },
+        END_FAKE_ASYNC () {
+
         }
 
     }));

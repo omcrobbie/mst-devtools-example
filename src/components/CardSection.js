@@ -15,14 +15,17 @@ const CardSection = ({
   return (
     <AppCardSection>
       <div>{title}</div>
-      <select disabled={room.disabled} onChange={e => onChange(room.id, e.target.value)} value={selectedVal}>
-        {values.map(val => {
-          return (
-            <option key={val} value={val}>
-              {val}
-            </option>
-          );
-        })}
+      <select 
+        disabled={room.disabled} 
+        onChange={e => onChange(room.id, e.target.value)} 
+        value={selectedVal}>
+          {values.map(val => {
+            return (
+              <option key={val} value={val}>
+                {val}
+              </option>
+            );
+          })}
       </select>
     </AppCardSection>
   );
