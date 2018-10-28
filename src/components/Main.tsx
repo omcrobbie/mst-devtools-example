@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Card from "./Card";
 import styled from "styled-components";
 import { connect } from 'react-redux';
@@ -10,10 +10,10 @@ const Container = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
 `;
-class Main extends React.Component {
-
+class Main extends React.Component<any, any> {
+  
   componentDidMount() {
-    const { startAsync, fetchState } = this.props.actions;
+    const { fetchState } = this.props.actions;
     fetchState();
   }
   render() {
