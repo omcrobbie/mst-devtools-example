@@ -1,6 +1,7 @@
 import { types, getSnapshot, flow } from 'mobx-state-tree';
 import Room from './Room';
 import aTypes from '../../actions/actionTypes';
+import { throttle } from 'lodash';
 
 const url = 'http://localhost:3002/data';
 const RoomStore = types
@@ -12,9 +13,7 @@ const RoomStore = types
     })
     .views(self => ({
         findById(id) {
-            const filtered = self.rooms
-                .filter(room => room.id === id);
-            return filtered[0];
+            return self.rooms.find(room => room.id === id);
         }
     }))
     .actions(self => ({
@@ -52,7 +51,7 @@ const RoomStore = types
             const room = self.findById(id);
             room.childSelector.selectedValue = parseInt(value);
         },
-        [aTypes.DEHYDRATE_STATE]: flow(function*() {
+        [aTypes.PUSH_STATE]: flow(function*() {
             self.saving = true;
             const state = getSnapshot(self.rooms);
             try {
@@ -69,11 +68,11 @@ const RoomStore = types
             // const enc = window.btoa(JSON.stringify(state));
             // window.location.search = `?d=${enc}`;
         }),
-        [aTypes.HYDRATE_STATE]: flow(function*() {
-            self.fetching = true;
+        [aTypes.FETCH_STATE]: flow(function*() {
             try {
-            const data = yield fetch(url);
-            const rooms = yield data.json();
+                self.fetching = true;
+                const data = yield fetch(url);
+                const rooms = yield data.json();
             if (rooms.length) {
                 rooms.forEach(({disabled, adultSelector, childSelector}, i) => {
                     const room = self.rooms[i];
@@ -88,6 +87,13 @@ const RoomStore = types
                 self.fetching = false;
             }
         }), 
+        [aTypes.RESET_DATA]() {
+            self.rooms.forEach((room, i) => {
+                room.resetValues();
+                if (i) room.setDisabled(true);
+            })
+            self[aTypes.PUSH_STATE]();
+        },
         async [aTypes.START_FAKE_ASYNC]() {
             const p = new Promise(res => {(
                 setTimeout(() => res(), 3000)

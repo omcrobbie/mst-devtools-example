@@ -16,18 +16,18 @@
           1,
           2
         ],
-        "selectedValue": 2
+        "selectedValue": 0
       }
     },
     {
       "id": 2,
-      "disabled": false,
+      "disabled": true,
       "adultSelector": {
         "values": [
           1,
           2
         ],
-        "selectedValue": 2
+        "selectedValue": 1
       },
       "childSelector": {
         "values": [
@@ -35,18 +35,18 @@
           1,
           2
         ],
-        "selectedValue": 2
+        "selectedValue": 0
       }
     },
     {
       "id": 3,
-      "disabled": false,
+      "disabled": true,
       "adultSelector": {
         "values": [
           1,
           2
         ],
-        "selectedValue": 2
+        "selectedValue": 1
       },
       "childSelector": {
         "values": [
@@ -54,18 +54,18 @@
           1,
           2
         ],
-        "selectedValue": 2
+        "selectedValue": 0
       }
     },
     {
       "id": 4,
-      "disabled": false,
+      "disabled": true,
       "adultSelector": {
         "values": [
           1,
           2
         ],
-        "selectedValue": 2
+        "selectedValue": 1
       },
       "childSelector": {
         "values": [
@@ -73,7 +73,7 @@
           1,
           2
         ],
-        "selectedValue": 2
+        "selectedValue": 0
       }
     }
   ]

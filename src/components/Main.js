@@ -13,18 +13,17 @@ const Container = styled.div`
 class Main extends React.Component {
 
   componentDidMount() {
-    const { startAsync, hydrate } = this.props.actions;
-    hydrate();
+    const { startAsync, fetchState } = this.props.actions;
+    fetchState();
   }
   render() {
     const { fetching, rooms, actions, error, saving } = this.props;
     if (fetching) {
-      return <h1>FETCHING...</h1>
+      return <h1>LOADING...</h1>
     }
     return (
       <div className="App">
         {error && <div style={{color: 'red' }}>ERROR: {error}</div>}
-        {saving && <div>SAVING...</div>}
         <Container>
           {rooms.map(room => {
             return (
@@ -36,7 +35,9 @@ class Main extends React.Component {
             );
           })}
         </Container>
-        <button onClick={actions.dehydrate}>Submit</button>
+        <button onClick={actions.pushState}>Submit</button>
+        <button onClick={actions.resetData}>Reset</button>
+        {saving && <span>SAVING...</span>}
       </div>
     );
   }
