@@ -1,0 +1,80 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "disabled": false,
+      "adultSelector": {
+        "values": [
+          1,
+          2
+        ],
+        "selectedValue": 1
+      },
+      "childSelector": {
+        "values": [
+          0,
+          1,
+          2
+        ],
+        "selectedValue": 2
+      }
+    },
+    {
+      "id": 2,
+      "disabled": false,
+      "adultSelector": {
+        "values": [
+          1,
+          2
+        ],
+        "selectedValue": 2
+      },
+      "childSelector": {
+        "values": [
+          0,
+          1,
+          2
+        ],
+        "selectedValue": 2
+      }
+    },
+    {
+      "id": 3,
+      "disabled": false,
+      "adultSelector": {
+        "values": [
+          1,
+          2
+        ],
+        "selectedValue": 2
+      },
+      "childSelector": {
+        "values": [
+          0,
+          1,
+          2
+        ],
+        "selectedValue": 2
+      }
+    },
+    {
+      "id": 4,
+      "disabled": false,
+      "adultSelector": {
+        "values": [
+          1,
+          2
+        ],
+        "selectedValue": 2
+      },
+      "childSelector": {
+        "values": [
+          0,
+          1,
+          2
+        ],
+        "selectedValue": 2
+      }
+    }
+  ]
+}

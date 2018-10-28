@@ -14,15 +14,17 @@ class Main extends React.Component {
 
   componentDidMount() {
     const { startAsync, hydrate } = this.props.actions;
-    startAsync();
-    if (window.location.search) {
-      hydrate();
-    }
+    hydrate();
   }
   render() {
-    const { rooms, actions } = this.props;
+    const { fetching, rooms, actions, error, saving } = this.props;
+    if (fetching) {
+      return <h1>FETCHING...</h1>
+    }
     return (
       <div className="App">
+        {error && <div style={{color: 'red' }}>ERROR: {error}</div>}
+        {saving && <div>SAVING...</div>}
         <Container>
           {rooms.map(room => {
             return (
@@ -39,11 +41,7 @@ class Main extends React.Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    rooms: state.rooms,
-  }
-}
+const mapStateToProps = state => ({...state});
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(roomActions, dispatch)
 })
