@@ -10,7 +10,8 @@ const Container = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
 `;
-class Main extends React.Component<any, any> {
+
+class Main extends React.Component<IRoomStore> {
   
   componentDidMount() {
     const { fetchState } = this.props.actions;

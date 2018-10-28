@@ -16,7 +16,11 @@ const AppCardHeader = styled.div`
     props.disabled ? "transparent" : "rgb(230, 230, 230)"};
   padding: 5px;
 `;
-const Card = ({ room, actions }) => {
+interface CardProps {
+  room: IRoom;
+  actions: IRoomActions;
+}
+const Card = ({ room, actions }: CardProps) => {
   return (
     <AppCard disabled={room.disabled}>
       <AppCardHeader disabled={room.disabled}>

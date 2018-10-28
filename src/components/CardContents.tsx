@@ -9,7 +9,12 @@ const CardBody = styled.div`
   justify-content: center;
   padding: 5px;
 `;
-const CardContents = ({ room, setChild, setAdult }) => {
+interface CardContentsProps {
+  room: IRoom;
+  setChild: Function;
+  setAdult: Function;
+}
+const CardContents = ({ room, setChild, setAdult }: CardContentsProps) => {
   return (
     <CardBody disabled={room.disabled}>
       <CardSection

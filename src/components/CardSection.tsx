@@ -4,12 +4,18 @@ import styled from "styled-components";
 const AppCardSection = styled.div`
   margin: 20px;
 `;
+interface CardSelectorProps {
+  title: string;
+  valuesKey: string;
+  room: IRoom;
+  onChange: Function;
+}
 const CardSection = ({
   title,
   valuesKey,
   room,
   onChange
-}) => {
+}: CardSelectorProps) => {
   const values = room[valuesKey].values;
   const selectedVal = room[valuesKey].selectedValue;
   return (
