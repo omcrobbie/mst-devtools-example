@@ -6,6 +6,5 @@ export default {
     setAdult: (id, value) => ({ type: aTypes.SET_ADULT, id, value }),
     fetchState: () => ({ type: aTypes.FETCH_STATE }),
     pushState: () => ({ type: aTypes.PUSH_STATE }),
-    startAsync: () => ({ type: aTypes.START_FAKE_ASYNC }),
     resetData: () => ({ type: aTypes.RESET_DATA })
 }

@@ -1,10 +1,10 @@
 declare interface IRoomActions {
-    handleClick(id: number);
-    setChild(id: number, value: string);
-    setAdult(id: number, value: string);
-    fetchState();
-    pushState();
-    resetData();
+    handleClick(id: number): void;
+    setChild(id: number, value: string): void;
+    setAdult(id: number, value: string): void;
+    fetchState(): void;
+    pushState(): void;
+    resetData(): void;
 }
 declare interface IRoomSelector {
     values: number[];
