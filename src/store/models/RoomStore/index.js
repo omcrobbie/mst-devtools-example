@@ -58,7 +58,7 @@ const RoomStore = types
                 yield fetch(url, {
                     headers: {'Content-Type': 'application/json'},
                     method: 'POST',
-                    body: JSON.stringify(state)
+                    body: JSON.stringify({rooms:state})
                 })
             } catch (err) {
                 self.error = err.message;
@@ -72,8 +72,8 @@ const RoomStore = types
             try {
                 self.fetching = true;
                 const data = yield fetch(url);
-                const rooms = yield data.json();
-            if (rooms.length) {
+                const { rooms } = yield data.json();
+            if (rooms && rooms.length) {
                 rooms.forEach(({disabled, adultSelector, childSelector}, i) => {
                     const room = self.rooms[i];
                     room.setDisabled(disabled);
