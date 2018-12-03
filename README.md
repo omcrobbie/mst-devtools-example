@@ -9,7 +9,7 @@ to use the dev tools I wanted to.
 Just for kicks, I also took the opportunity to further refine my code.
 
 * Convert to Typescript
-* Replace front end state hashing with {json-server)[https://github.com/typicode/json-server] to persist the data
+* Replace front end state hashing with [json-server](https://github.com/typicode/json-server) to persist the data
 * Replace ad-hoc data entities with MobX-State-Tree models
 
 I've found this pattern to be very useful and have begun implementing it in my professional work.
